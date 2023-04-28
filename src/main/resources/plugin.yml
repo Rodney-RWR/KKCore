@@ -5,7 +5,7 @@ api-version: 1.13
 authors: [Rodney_RWR]
 description: "KoolKidz Core Plugin"
 prefix: "koolkidz"
-depend: [VisualBukkit, PlaceholderAPI, Vault]
+depend: [PlaceholderAPI, Vault]
 commands:
   koolkidzcore:
     aliases: [kkcore]
