@@ -1,0 +1,1110 @@
+{
+  "plugin.dependencies": "VisualBukkit, PlaceholderAPI, Vault",
+  "plugin.load-before": "",
+  "plugin.version": "Beta-v0.1.0",
+  "debug-build-mode": true,
+  "open-tab": 7,
+  "plugin-components": [
+    {
+      "children": [
+        {
+          "=": "stat-log-info",
+          "parameters": [{
+            "=": "expr-combine-strings",
+            "parameters": [
+              {
+                "=": "expr-colored-string",
+                "parameters": [{
+                  "=": "expr-config-value",
+                  "parameters": [
+                    {
+                      "=": "expr-config-from-file",
+                      "parameters": [{
+                        "=": "expr-file-in-directory",
+                        "parameters": [
+                          {"=": "expr-plugin-directory"},
+                          {
+                            "=": "expr-string",
+                            "parameters": ["messages.yml"]
+                          }
+                        ]
+                      }]
+                    },
+                    {
+                      "=": "expr-string",
+                      "parameters": ["prefix"]
+                    }
+                  ]
+                }]
+              },
+              {
+                "=": "expr-string",
+                "parameters": [" &aPlugin Enabled!"]
+              }
+            ]
+          }]
+        },
+        {
+          "children": [
+            {
+              "=": "stat-log-info",
+              "parameters": [{
+                "size": 1,
+                "=": "expr-combine-strings",
+                "parameters": [
+                  {
+                    "=": "expr-colored-string",
+                    "parameters": [{
+                      "=": "expr-config-value",
+                      "parameters": [
+                        {
+                          "=": "expr-config-from-file",
+                          "parameters": [{
+                            "=": "expr-file-in-directory",
+                            "parameters": [
+                              {"=": "expr-plugin-directory"},
+                              {
+                                "=": "expr-string",
+                                "parameters": ["messages.yml"]
+                              }
+                            ]
+                          }]
+                        },
+                        {
+                          "=": "expr-string",
+                          "parameters": ["prefix"]
+                        }
+                      ]
+                    }]
+                  },
+                  {
+                    "=": "expr-string",
+                    "parameters": [" &aUpdate Available! New Version: "]
+                  },
+                  {
+                    "=": "expr-github-version",
+                    "parameters": [
+                      null,
+                      null
+                    ]
+                  }
+                ]
+              }]
+            },
+            {
+              "=": "stat-log-info",
+              "parameters": [{
+                "=": "expr-string",
+                "parameters": ["Download Here: https://github.com/Rodney-RWR/KKCore/releases/latest"]
+              }]
+            }
+          ],
+          "=": "stat-if-statement",
+          "parameters": [
+            {
+              "=": "java.lang.String#equalsIgnoreCase(java.lang.String)",
+              "parameters": [
+                {
+                  "=": "expr-has-github-update",
+                  "parameters": [
+                    {
+                      "=": "expr-string",
+                      "parameters": ["Rodney-RWR"]
+                    },
+                    {
+                      "=": "expr-string",
+                      "parameters": ["KKCore"]
+                    }
+                  ]
+                },
+                {
+                  "=": "expr-string",
+                  "parameters": ["true"]
+                }
+              ]
+            },
+            "normal"
+          ]
+        }
+      ],
+      "=": "comp-plugin-enable"
+    },
+    {
+      "children": [
+        {
+          "children": [{
+            "collapsed": true,
+            "=": "org.bukkit.command.CommandSender#sendMessage(java.lang.String)",
+            "parameters": [
+              {"=": "expr-command-sender"},
+              {
+                "=": "expr-combine-strings",
+                "parameters": [
+                  {
+                    "=": "expr-colored-string",
+                    "parameters": [{
+                      "=": "expr-config-value",
+                      "parameters": [
+                        {
+                          "=": "expr-config-from-file",
+                          "parameters": [{
+                            "=": "expr-file-in-directory",
+                            "parameters": [
+                              {"=": "expr-plugin-directory"},
+                              {
+                                "=": "expr-string",
+                                "parameters": ["messages.yml"]
+                              }
+                            ]
+                          }]
+                        },
+                        {
+                          "=": "expr-string",
+                          "parameters": ["prefix"]
+                        }
+                      ]
+                    }]
+                  },
+                  {
+                    "=": "expr-string",
+                    "parameters": [" &fInvalid Usage: /kkcore help"]
+                  }
+                ]
+              }
+            ]
+          }],
+          "=": "stat-if-statement",
+          "parameters": [
+            {
+              "=": "expr-is-null",
+              "parameters": [{
+                "=": "expr-command-argument",
+                "parameters": [{
+                  "=": "expr-number",
+                  "parameters": ["0"]
+                }]
+              }]
+            },
+            "normal"
+          ]
+        },
+        {
+          "children": [
+            {
+              "children": [{
+                "collapsed": true,
+                "=": "org.bukkit.command.CommandSender#sendMessage(java.lang.String)",
+                "parameters": [
+                  {"=": "expr-command-sender"},
+                  {
+                    "=": "expr-combine-strings",
+                    "parameters": [
+                      {
+                        "=": "expr-colored-string",
+                        "parameters": [{
+                          "=": "expr-config-value",
+                          "parameters": [
+                            {
+                              "=": "expr-config-from-file",
+                              "parameters": [{
+                                "=": "expr-file-in-directory",
+                                "parameters": [
+                                  {"=": "expr-plugin-directory"},
+                                  {
+                                    "=": "expr-string",
+                                    "parameters": ["messages.yml"]
+                                  }
+                                ]
+                              }]
+                            },
+                            {
+                              "=": "expr-string",
+                              "parameters": ["prefix"]
+                            }
+                          ]
+                        }]
+                      },
+                      {
+                        "=": "expr-string",
+                        "parameters": [" &fAsphy is a doo doo head!"]
+                      }
+                    ]
+                  }
+                ]
+              }],
+              "=": "stat-if-statement",
+              "parameters": [
+                {
+                  "=": "java.lang.String#equalsIgnoreCase(java.lang.String)",
+                  "parameters": [
+                    {
+                      "=": "expr-command-argument",
+                      "parameters": [{
+                        "=": "expr-number",
+                        "parameters": ["0"]
+                      }]
+                    },
+                    {
+                      "=": "expr-string",
+                      "parameters": ["secret"]
+                    }
+                  ]
+                },
+                "normal"
+              ]
+            },
+            {
+              "children": [{
+                "collapsed": true,
+                "=": "org.bukkit.command.CommandSender#sendMessage(java.lang.String)",
+                "parameters": [
+                  {"=": "expr-command-sender"},
+                  {
+                    "=": "expr-combine-strings",
+                    "parameters": [
+                      {
+                        "=": "expr-combine-strings",
+                        "parameters": [
+                          {
+                            "=": "expr-colored-string",
+                            "parameters": [{
+                              "=": "expr-config-value",
+                              "parameters": [
+                                {
+                                  "=": "expr-config-from-file",
+                                  "parameters": [{
+                                    "=": "expr-file-in-directory",
+                                    "parameters": [
+                                      {"=": "expr-plugin-directory"},
+                                      {
+                                        "=": "expr-string",
+                                        "parameters": ["messages.yml"]
+                                      }
+                                    ]
+                                  }]
+                                },
+                                {
+                                  "=": "expr-string",
+                                  "parameters": ["prefix"]
+                                }
+                              ]
+                            }]
+                          },
+                          {
+                            "=": "expr-string",
+                            "parameters": [" &fPlugin Version: &7"]
+                          }
+                        ]
+                      },
+                      {"=": "expr-plugin-version"}
+                    ]
+                  }
+                ]
+              }],
+              "=": "stat-if-statement",
+              "parameters": [
+                {
+                  "=": "java.lang.String#equalsIgnoreCase(java.lang.String)",
+                  "parameters": [
+                    {
+                      "=": "expr-command-argument",
+                      "parameters": [{
+                        "=": "expr-number",
+                        "parameters": ["0"]
+                      }]
+                    },
+                    {
+                      "=": "expr-string",
+                      "parameters": ["version"]
+                    }
+                  ]
+                },
+                "normal"
+              ]
+            },
+            {
+              "children": [{
+                "=": "org.bukkit.command.CommandSender#sendMessage(java.lang.String...)",
+                "parameters": [
+                  {"=": "expr-command-sender"},
+                  {
+                    "size": 2,
+                    "=": "expr-new-list",
+                    "parameters": [
+                      {
+                        "=": "expr-combine-strings",
+                        "parameters": [
+                          {
+                            "=": "expr-colored-string",
+                            "parameters": [{
+                              "=": "expr-config-value",
+                              "parameters": [
+                                {
+                                  "=": "expr-config-from-file",
+                                  "parameters": [{
+                                    "=": "expr-file-in-directory",
+                                    "parameters": [
+                                      {"=": "expr-plugin-directory"},
+                                      {
+                                        "=": "expr-string",
+                                        "parameters": ["messages.yml"]
+                                      }
+                                    ]
+                                  }]
+                                },
+                                {
+                                  "=": "expr-string",
+                                  "parameters": ["prefix"]
+                                }
+                              ]
+                            }]
+                          },
+                          {
+                            "=": "expr-string",
+                            "parameters": [" &fPlugin Help: "]
+                          }
+                        ]
+                      },
+                      {
+                        "=": "expr-string",
+                        "parameters": ["&d/kkcore version&7: &fShows plugin version"]
+                      }
+                    ]
+                  }
+                ]
+              }],
+              "=": "stat-if-statement",
+              "parameters": [
+                {
+                  "=": "java.lang.String#equalsIgnoreCase(java.lang.String)",
+                  "parameters": [
+                    {
+                      "=": "expr-command-argument",
+                      "parameters": [{
+                        "=": "expr-number",
+                        "parameters": ["0"]
+                      }]
+                    },
+                    {
+                      "=": "expr-string",
+                      "parameters": ["help"]
+                    }
+                  ]
+                },
+                "normal"
+              ]
+            },
+            {
+              "children": [{
+                "=": "stat-open-gui",
+                "parameters": [
+                  {
+                    "=": "expr-string",
+                    "parameters": ["configGUI"]
+                  },
+                  {"=": "expr-command-sender"}
+                ]
+              }],
+              "=": "stat-if-statement",
+              "parameters": [
+                {
+                  "=": "java.lang.String#equalsIgnoreCase(java.lang.String)",
+                  "parameters": [
+                    {
+                      "=": "expr-command-argument",
+                      "parameters": [{
+                        "=": "expr-number",
+                        "parameters": ["0"]
+                      }]
+                    },
+                    {
+                      "=": "expr-string",
+                      "parameters": ["config"]
+                    }
+                  ]
+                },
+                "normal"
+              ]
+            }
+          ],
+          "=": "stat-else-if-statement",
+          "parameters": [
+            {
+              "=": "expr-is-null",
+              "parameters": [{
+                "=": "expr-command-argument",
+                "parameters": [{
+                  "=": "expr-number",
+                  "parameters": ["0"]
+                }]
+              }]
+            },
+            "negate condition"
+          ]
+        }
+      ],
+      "=": "comp-command",
+      "parameters": [
+        "koolkidzcore",
+        "kkcore",
+        "KKCore main command.",
+        "",
+        "&dKKCore &7>> &cNo permission!",
+        "/kkcore help"
+      ]
+    },
+    {
+      "children": [{
+        "=": "stat-log-info",
+        "parameters": [{
+          "=": "expr-combine-strings",
+          "parameters": [
+            {
+              "=": "expr-colored-string",
+              "parameters": [{
+                "=": "expr-config-value",
+                "parameters": [
+                  {
+                    "=": "expr-config-from-file",
+                    "parameters": [{
+                      "=": "expr-file-in-directory",
+                      "parameters": [
+                        {"=": "expr-plugin-directory"},
+                        {
+                          "=": "expr-string",
+                          "parameters": ["messages.yml"]
+                        }
+                      ]
+                    }]
+                  },
+                  {
+                    "=": "expr-string",
+                    "parameters": ["prefix"]
+                  }
+                ]
+              }]
+            },
+            {
+              "=": "expr-string",
+              "parameters": [" &cPlugin Disabled!"]
+            }
+          ]
+        }]
+      }],
+      "=": "comp-plugin-disable"
+    },
+    {
+      "children": [{
+        "children": [{
+          "=": "org.bukkit.event.server.TabCompleteEvent#setCompletions(java.util.List<java.lang.String>)",
+          "parameters": [{
+            "size": 4,
+            "=": "expr-new-list",
+            "parameters": [
+              {
+                "=": "expr-string",
+                "parameters": ["version"]
+              },
+              {
+                "=": "expr-string",
+                "parameters": ["help"]
+              },
+              {
+                "=": "expr-string",
+                "parameters": ["reload"]
+              },
+              {
+                "=": "expr-string",
+                "parameters": ["config"]
+              }
+            ]
+          }]
+        }],
+        "=": "stat-if-statement",
+        "parameters": [
+          {
+            "size": 2,
+            "=": "expr-boolean-logic",
+            "parameters": [
+              {
+                "=": "expr-is-equal",
+                "parameters": [
+                  {"=": "org.bukkit.event.server.TabCompleteEvent#getBuffer()"},
+                  {
+                    "=": "expr-string",
+                    "parameters": ["/kkcore "]
+                  }
+                ]
+              },
+              "OR",
+              {
+                "=": "expr-is-equal",
+                "parameters": [
+                  {"=": "org.bukkit.event.server.TabCompleteEvent#getBuffer()"},
+                  {
+                    "=": "expr-string",
+                    "parameters": ["/koolkidzcore "]
+                  }
+                ]
+              },
+              "OR",
+              {
+                "=": "expr-is-equal",
+                "parameters": [
+                  {"=": "org.bukkit.event.server.TabCompleteEvent#getBuffer()"},
+                  {
+                    "=": "expr-string",
+                    "parameters": ["/kkcore:koolkidzcore "]
+                  }
+                ]
+              },
+              "OR",
+              {
+                "=": "expr-is-equal",
+                "parameters": [
+                  {"=": "org.bukkit.event.server.TabCompleteEvent#getBuffer()"},
+                  {
+                    "=": "expr-string",
+                    "parameters": ["/kkcore:koolkidzcore "]
+                  }
+                ]
+              }
+            ]
+          },
+          "normal"
+        ]
+      }],
+      "=": "org.bukkit.event.server.TabCompleteEvent",
+      "parameters": ["HIGHEST"]
+    },
+    {
+      "children": [{
+        "=": "org.bukkit.inventory.Inventory#setItem(int,org.bukkit.inventory.ItemStack)",
+        "parameters": [
+          {"=": "expr-created-gui-inventory"},
+          {
+            "=": "expr-number",
+            "parameters": ["0"]
+          },
+          {
+            "=": "expr-new-named-item-with-lore",
+            "parameters": [
+              {"=": "org.bukkit.Material#NAME_TAG"},
+              {
+                "=": "expr-string",
+                "parameters": ["&fPlugin Prefix"]
+              },
+              {
+                "size": 3,
+                "=": "expr-new-list",
+                "parameters": [
+                  {
+                    "=": "expr-combine-strings",
+                    "parameters": [
+                      {
+                        "=": "expr-string",
+                        "parameters": ["&7Current: "]
+                      },
+                      {
+                        "=": "expr-colored-string",
+                        "parameters": [{
+                          "=": "expr-config-value",
+                          "parameters": [
+                            {
+                              "=": "expr-config-from-file",
+                              "parameters": [{
+                                "=": "expr-file-in-directory",
+                                "parameters": [
+                                  {"=": "expr-plugin-directory"},
+                                  {
+                                    "=": "expr-string",
+                                    "parameters": ["messages.yml"]
+                                  }
+                                ]
+                              }]
+                            },
+                            {
+                              "=": "expr-string",
+                              "parameters": ["prefix"]
+                            }
+                          ]
+                        }]
+                      }
+                    ]
+                  },
+                  {
+                    "=": "expr-string",
+                    "parameters": ["&fLeft Click &7To Change"]
+                  },
+                  {
+                    "=": "expr-string",
+                    "parameters": ["&fRight Click &7To Preview"]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }],
+      "=": "comp-create-gui",
+      "parameters": [
+        "configGUI",
+        {
+          "=": "expr-combine-strings",
+          "parameters": [
+            {
+              "=": "expr-colored-string",
+              "parameters": [{
+                "=": "expr-config-value",
+                "parameters": [
+                  {
+                    "=": "expr-config-from-file",
+                    "parameters": [{
+                      "=": "expr-file-in-directory",
+                      "parameters": [
+                        {"=": "expr-plugin-directory"},
+                        {
+                          "=": "expr-string",
+                          "parameters": ["messages.yml"]
+                        }
+                      ]
+                    }]
+                  },
+                  {
+                    "=": "expr-string",
+                    "parameters": ["prefix"]
+                  }
+                ]
+              }]
+            },
+            {
+              "=": "expr-string",
+              "parameters": [" &fConfiguration"]
+            }
+          ]
+        },
+        {
+          "=": "expr-number",
+          "parameters": ["45"]
+        },
+        "recreate when opened"
+      ]
+    },
+    {
+      "children": [{
+        "children": [
+          {
+            "children": [
+              {
+                "=": "org.bukkit.entity.HumanEntity#closeInventory()",
+                "parameters": [{"=": "expr-gui-clicker"}]
+              },
+              {
+                "=": "org.bukkit.command.CommandSender#sendMessage(java.lang.String)",
+                "parameters": [
+                  {"=": "expr-gui-clicker"},
+                  {
+                    "=": "expr-combine-strings",
+                    "parameters": [
+                      {
+                        "=": "expr-colored-string",
+                        "parameters": [{
+                          "=": "expr-config-value",
+                          "parameters": [
+                            {
+                              "=": "expr-config-from-file",
+                              "parameters": [{
+                                "=": "expr-file-in-directory",
+                                "parameters": [
+                                  {"=": "expr-plugin-directory"},
+                                  {
+                                    "=": "expr-string",
+                                    "parameters": ["messages.yml"]
+                                  }
+                                ]
+                              }]
+                            },
+                            {
+                              "=": "expr-string",
+                              "parameters": ["prefix"]
+                            }
+                          ]
+                        }]
+                      },
+                      {
+                        "=": "expr-string",
+                        "parameters": [" &fPreviewing the prefix!"]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "children": [{
+                  "=": "stat-open-gui",
+                  "parameters": [
+                    {
+                      "=": "expr-string",
+                      "parameters": ["configGUI"]
+                    },
+                    {"=": "expr-gui-clicker"}
+                  ]
+                }],
+                "=": "stat-schedule-task",
+                "parameters": [
+                  "sync",
+                  "run once",
+                  {
+                    "=": "expr-number",
+                    "parameters": ["100"]
+                  }
+                ]
+              }
+            ],
+            "=": "stat-if-statement",
+            "parameters": [
+              {
+                "=": "java.lang.String#equalsIgnoreCase(java.lang.String)",
+                "parameters": [
+                  {"=": "expr-gui-click-type"},
+                  {
+                    "=": "expr-string",
+                    "parameters": ["RIGHT"]
+                  }
+                ]
+              },
+              "normal"
+            ]
+          },
+          {
+            "children": [
+              {
+                "=": "stat-set-global-variable",
+                "parameters": [
+                  "configPrefixModify",
+                  {
+                    "=": "expr-boolean",
+                    "parameters": ["true"]
+                  }
+                ]
+              },
+              {
+                "=": "org.bukkit.entity.HumanEntity#closeInventory()",
+                "parameters": [{"=": "expr-gui-clicker"}]
+              },
+              {
+                "=": "org.bukkit.command.CommandSender#sendMessage(java.lang.String)",
+                "parameters": [
+                  {"=": "expr-gui-clicker"},
+                  {
+                    "=": "expr-combine-strings",
+                    "parameters": [
+                      {
+                        "=": "expr-colored-string",
+                        "parameters": [{
+                          "=": "expr-config-value",
+                          "parameters": [
+                            {
+                              "=": "expr-config-from-file",
+                              "parameters": [{
+                                "=": "expr-file-in-directory",
+                                "parameters": [
+                                  {"=": "expr-plugin-directory"},
+                                  {
+                                    "=": "expr-string",
+                                    "parameters": ["messages.yml"]
+                                  }
+                                ]
+                              }]
+                            },
+                            {
+                              "=": "expr-string",
+                              "parameters": ["prefix"]
+                            }
+                          ]
+                        }]
+                      },
+                      {
+                        "=": "expr-string",
+                        "parameters": [" &fType the new prefix:"]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "=": "stat-if-statement",
+            "parameters": [
+              {
+                "=": "java.lang.String#equalsIgnoreCase(java.lang.String)",
+                "parameters": [
+                  {"=": "expr-gui-click-type"},
+                  {
+                    "=": "expr-string",
+                    "parameters": ["LEFT"]
+                  }
+                ]
+              },
+              "normal"
+            ]
+          }
+        ],
+        "=": "stat-if-statement",
+        "parameters": [
+          {
+            "=": "java.lang.String#equalsIgnoreCase(java.lang.String)",
+            "parameters": [
+              {"=": "expr-gui-clicked-slot"},
+              {
+                "=": "expr-string",
+                "parameters": ["0"]
+              }
+            ]
+          },
+          "normal"
+        ]
+      }],
+      "=": "comp-gui-click-handler",
+      "parameters": ["configGUI"]
+    },
+    {
+      "children": [{
+        "children": [
+          {
+            "=": "stat-set-config-value",
+            "parameters": [
+              {
+                "=": "expr-config-from-file",
+                "parameters": [{
+                  "=": "expr-file-in-directory",
+                  "parameters": [
+                    {"=": "expr-plugin-directory"},
+                    {
+                      "=": "expr-string",
+                      "parameters": ["messages.yml"]
+                    }
+                  ]
+                }]
+              },
+              {
+                "=": "expr-string",
+                "parameters": ["prefix"]
+              },
+              {
+                "=": "expr-combine-strings",
+                "parameters": [
+                  {
+                    "=": "expr-colored-string",
+                    "parameters": [null]
+                  },
+                  {
+                    "=": "expr-string",
+                    "parameters": [" &cPrefix Updated!"]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "=": "org.bukkit.event.player.PlayerChatEvent#setCancelled(boolean)",
+            "parameters": [{
+              "=": "expr-boolean",
+              "parameters": ["true"]
+            }]
+          },
+          {
+            "=": "org.bukkit.command.CommandSender#sendMessage(java.lang.String)",
+            "parameters": [
+              {"=": "org.bukkit.event.player.PlayerChatEvent#getPlayer()"},
+              {
+                "=": "expr-combine-strings",
+                "parameters": [
+                  {
+                    "=": "expr-colored-string",
+                    "parameters": [{
+                      "=": "expr-config-value",
+                      "parameters": [
+                        {
+                          "=": "expr-config-from-file",
+                          "parameters": [{
+                            "=": "expr-file-in-directory",
+                            "parameters": [
+                              {"=": "expr-plugin-directory"},
+                              {
+                                "=": "expr-string",
+                                "parameters": ["messages.yml"]
+                              }
+                            ]
+                          }]
+                        },
+                        {
+                          "=": "expr-string",
+                          "parameters": ["prefix"]
+                        }
+                      ]
+                    }]
+                  },
+                  {
+                    "=": "expr-string",
+                    "parameters": [" &cPrefix Updated!"]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "=": "stat-set-global-variable",
+            "parameters": [
+              "configPrefixModify",
+              {
+                "=": "expr-boolean",
+                "parameters": ["false"]
+              }
+            ]
+          },
+          {
+            "=": "stat-open-gui",
+            "parameters": [
+              {
+                "=": "expr-string",
+                "parameters": ["configGUI"]
+              },
+              {"=": "org.bukkit.event.player.PlayerChatEvent#getPlayer()"}
+            ]
+          }
+        ],
+        "=": "stat-if-statement",
+        "parameters": [
+          {
+            "=": "java.lang.String#equalsIgnoreCase(java.lang.String)",
+            "parameters": [
+              {
+                "=": "expr-global-variable",
+                "parameters": ["configPrefixModify"]
+              },
+              {
+                "=": "expr-boolean",
+                "parameters": ["true"]
+              }
+            ]
+          },
+          "normal"
+        ]
+      }],
+      "=": "org.bukkit.event.player.PlayerChatEvent",
+      "parameters": ["HIGHEST"]
+    },
+    {
+      "=": "comp-stabcomplete",
+      "parameters": [""]
+    },
+    {
+      "children": [{
+        "children": [{
+          "=": "org.bukkit.command.CommandSender#sendMessage(java.lang.String...)",
+          "parameters": [
+            {"=": "org.bukkit.event.player.PlayerJoinEvent#getPlayer()"},
+            {
+              "size": 2,
+              "=": "expr-new-list",
+              "parameters": [
+                {
+                  "=": "expr-combine-strings",
+                  "parameters": [
+                    {
+                      "=": "expr-colored-string",
+                      "parameters": [{
+                        "=": "expr-config-value",
+                        "parameters": [
+                          {
+                            "=": "expr-config-from-file",
+                            "parameters": [{
+                              "=": "expr-file-in-directory",
+                              "parameters": [
+                                {"=": "expr-plugin-directory"},
+                                {
+                                  "=": "expr-string",
+                                  "parameters": ["messages.yml"]
+                                }
+                              ]
+                            }]
+                          },
+                          {
+                            "=": "expr-string",
+                            "parameters": ["prefix"]
+                          }
+                        ]
+                      }]
+                    },
+                    {
+                      "=": "expr-string",
+                      "parameters": [" &aUpdate Available!"]
+                    }
+                  ]
+                },
+                {
+                  "=": "expr-string",
+                  "parameters": ["&fDownload Here: &7https://github.com/Rodney-RWR/KKCore/releases/latest"]
+                }
+              ]
+            }
+          ]
+        }],
+        "=": "stat-if-statement",
+        "parameters": [
+          {
+            "=": "java.lang.String#equalsIgnoreCase(java.lang.String)",
+            "parameters": [
+              {
+                "=": "expr-has-github-update",
+                "parameters": [
+                  {
+                    "=": "expr-string",
+                    "parameters": ["Rodney-RWR"]
+                  },
+                  {
+                    "=": "expr-string",
+                    "parameters": ["KKCore"]
+                  }
+                ]
+              },
+              {
+                "=": "expr-string",
+                "parameters": ["true"]
+              }
+            ]
+          },
+          "normal"
+        ]
+      }],
+      "=": "org.bukkit.event.player.PlayerJoinEvent",
+      "parameters": ["NORMAL"]
+    }
+  ],
+  "plugin.soft-dependencies": "",
+  "plugin.name": "KKCore",
+  "plugin.prefix": "koolkidz",
+  "current-plugin-component": 7,
+  "extensions": [
+    "PlaceholderAPI",
+    "Vault",
+    "sDiscordWebhooks",
+    "sFileUtils",
+    "sTabCompletion",
+    "sUpdateChecker"
+  ],
+  "plugin.author": "Rodney_RWR",
+  "plugin.description": "KoolKidz Core Plugin",
+  "plugin.permissions": "",
+  "open-plugin-components": [
+    8,
+    6,
+    5,
+    4,
+    3,
+    2,
+    1,
+    0
+  ],
+  "plugin.website": ""
+}

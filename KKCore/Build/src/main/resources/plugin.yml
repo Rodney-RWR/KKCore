@@ -1,0 +1,15 @@
+name: "KKCore"
+version: "Beta-v0.1.0"
+main: "vb.$kkcore.PluginMain"
+api-version: 1.13
+authors: [Rodney_RWR]
+description: "KoolKidz Core Plugin"
+prefix: "koolkidz"
+depend: [VisualBukkit, PlaceholderAPI, Vault]
+commands:
+  koolkidzcore:
+    aliases: [kkcore]
+    description: "KKCore main command."
+    permission-message: "&dKKCore &7>> &cNo permission!"
+    usage: "/kkcore help"
+permissions:
