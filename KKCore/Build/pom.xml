@@ -6,7 +6,7 @@
 
     <groupId>vb</groupId>
     <artifactId>kkcore</artifactId>
-    <version>Beta-v0.1.0</version>
+    <version>Beta-v0.1.4</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

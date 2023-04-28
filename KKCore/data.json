@@ -1,7 +1,7 @@
 {
   "plugin.dependencies": "VisualBukkit, PlaceholderAPI, Vault",
   "plugin.load-before": "",
-  "plugin.version": "Beta-v0.1.0",
+  "plugin.version": "Beta-v0.1.4",
   "debug-build-mode": true,
   "open-tab": 7,
   "plugin-components": [

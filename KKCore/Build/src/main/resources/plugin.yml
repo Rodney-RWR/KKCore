@@ -1,5 +1,5 @@
 name: "KKCore"
-version: "Beta-v0.1.0"
+version: "Beta-v0.1.4"
 main: "vb.$kkcore.PluginMain"
 api-version: 1.13
 authors: [Rodney_RWR]
