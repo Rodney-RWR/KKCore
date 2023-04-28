@@ -28,25 +28,26 @@ public class PluginMain extends JavaPlugin implements Listener {
 				if (((boolean) String.valueOf(PluginMain.hasGithubUpdate("Rodney-RWR", "KKCore"))
 						.equalsIgnoreCase("true"))) {
 					try {
-						PluginMain.getInstance().getLogger().info((ChatColor
+						PluginMain.getInstance().getLogger().info(((ChatColor
 								.translateAlternateColorCodes('&', String.valueOf(
 										((org.bukkit.configuration.ConfigurationSection) (Object) org.bukkit.configuration.file.YamlConfiguration
 												.loadConfiguration(new File(
 														String.valueOf(PluginMain.getInstance().getDataFolder()),
 														"messages.yml"))).get("prefix")))
-								+ ChatColor.translateAlternateColorCodes('&', " &aUpdate Available!")));
+								+ ChatColor.translateAlternateColorCodes('&', " &aUpdate Available! New Version: "))
+								+ PluginMain.getGithubVersion(((java.lang.String) null), ((java.lang.String) null))));
 						try {
 							PluginMain.getInstance().getLogger()
 									.info("Download Here: https://github.com/Rodney-RWR/KKCore/releases/latest");
-						} catch (Exception $FS6AGS48Ux68lbf8) {
-							PluginMain.reportError("FS6AGS48Ux68lbf8", $FS6AGS48Ux68lbf8);
+						} catch (Exception $Yeizc5n9V8jUPIlQ) {
+							PluginMain.reportError("Yeizc5n9V8jUPIlQ", $Yeizc5n9V8jUPIlQ);
 						}
-					} catch (Exception $iQFoH1D3qmGxTHUZ) {
-						PluginMain.reportError("iQFoH1D3qmGxTHUZ", $iQFoH1D3qmGxTHUZ);
+					} catch (Exception $AVJDwHKy9ZeJNHc1) {
+						PluginMain.reportError("AVJDwHKy9ZeJNHc1", $AVJDwHKy9ZeJNHc1);
 					}
 				}
-			} catch (Exception $8hYtvFMiHt9jwk7D) {
-				PluginMain.reportError("8hYtvFMiHt9jwk7D", $8hYtvFMiHt9jwk7D);
+			} catch (Exception $4WSj7I6Q75vlnA5K) {
+				PluginMain.reportError("4WSj7I6Q75vlnA5K", $4WSj7I6Q75vlnA5K);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -74,8 +75,8 @@ public class PluginMain extends JavaPlugin implements Listener {
 															"messages.yml"))).get("prefix")))),
 									ChatColor.translateAlternateColorCodes('&', "&fLeft Click &7To Change"),
 									ChatColor.translateAlternateColorCodes('&', "&fRight Click &7To Preview")))));
-				} catch (Exception $koYCYchgEHw4Khqk) {
-					PluginMain.reportError("koYCYchgEHw4Khqk", $koYCYchgEHw4Khqk);
+				} catch (Exception $bRntye7YOGEds5fX) {
+					PluginMain.reportError("bRntye7YOGEds5fX", $bRntye7YOGEds5fX);
 				}
 				return guiInventory;
 			} catch (Exception e) {
@@ -94,8 +95,8 @@ public class PluginMain extends JavaPlugin implements Listener {
 								.loadConfiguration(new File(String.valueOf(PluginMain.getInstance().getDataFolder()),
 										"messages.yml"))).get("prefix")))
 						+ ChatColor.translateAlternateColorCodes('&', " &cPlugin Disabled!")));
-			} catch (Exception $7Fwj58Hpt19BIQnZ) {
-				PluginMain.reportError("7Fwj58Hpt19BIQnZ", $7Fwj58Hpt19BIQnZ);
+			} catch (Exception $DZXkFpihdW24LIjj) {
+				PluginMain.reportError("DZXkFpihdW24LIjj", $DZXkFpihdW24LIjj);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -114,8 +115,8 @@ public class PluginMain extends JavaPlugin implements Listener {
 												new File(String.valueOf(PluginMain.getInstance().getDataFolder()),
 														"messages.yml"))).get("prefix")))
 								+ ChatColor.translateAlternateColorCodes('&', " &fInvalid Usage: /kkcore help")));
-					} catch (Exception $Hbeqnp9Tb8dKjQNl) {
-						PluginMain.reportError("Hbeqnp9Tb8dKjQNl", $Hbeqnp9Tb8dKjQNl);
+					} catch (Exception $hM8CYw7FvMPe9fsO) {
+						PluginMain.reportError("hM8CYw7FvMPe9fsO", $hM8CYw7FvMPe9fsO);
 					}
 				} else if (!((commandArgs.length > ((int) (0d)) ? commandArgs[((int) (0d))] : null) == null)) {
 					if (((boolean) (commandArgs.length > ((int) (0d)) ? commandArgs[((int) (0d))] : null)
@@ -127,8 +128,8 @@ public class PluginMain extends JavaPlugin implements Listener {
 													new File(String.valueOf(PluginMain.getInstance().getDataFolder()),
 															"messages.yml"))).get("prefix")))
 									+ ChatColor.translateAlternateColorCodes('&', " &fAsphy is a doo doo head!")));
-						} catch (Exception $BpPCojK80fUywj0w) {
-							PluginMain.reportError("BpPCojK80fUywj0w", $BpPCojK80fUywj0w);
+						} catch (Exception $MsfZ6uD43YD0oouu) {
+							PluginMain.reportError("MsfZ6uD43YD0oouu", $MsfZ6uD43YD0oouu);
 						}
 					}
 					if (((boolean) (commandArgs.length > ((int) (0d)) ? commandArgs[((int) (0d))] : null)
@@ -141,8 +142,8 @@ public class PluginMain extends JavaPlugin implements Listener {
 															"messages.yml"))).get("prefix")))
 									+ ChatColor.translateAlternateColorCodes('&', " &fPlugin Version: &7"))
 									+ PluginMain.getInstance().getDescription().getVersion()));
-						} catch (Exception $HbUszIkC3me9Uk6D) {
-							PluginMain.reportError("HbUszIkC3me9Uk6D", $HbUszIkC3me9Uk6D);
+						} catch (Exception $gzbvoUOf5v5AUzOZ) {
+							PluginMain.reportError("gzbvoUOf5v5AUzOZ", $gzbvoUOf5v5AUzOZ);
 						}
 					}
 					if (((boolean) (commandArgs.length > ((int) (0d)) ? commandArgs[((int) (0d))] : null)
@@ -158,8 +159,8 @@ public class PluginMain extends JavaPlugin implements Listener {
 									ChatColor.translateAlternateColorCodes('&',
 											"&d/kkcore version&7: &fShows plugin version")))
 													.toArray(new java.lang.String[]{})));
-						} catch (Exception $hgRTZV41wmyqJ2kx) {
-							PluginMain.reportError("hgRTZV41wmyqJ2kx", $hgRTZV41wmyqJ2kx);
+						} catch (Exception $fXilGpPzdkW1pG17) {
+							PluginMain.reportError("fXilGpPzdkW1pG17", $fXilGpPzdkW1pG17);
 						}
 					}
 					if (((boolean) (commandArgs.length > ((int) (0d)) ? commandArgs[((int) (0d))] : null)
@@ -167,8 +168,8 @@ public class PluginMain extends JavaPlugin implements Listener {
 						try {
 							GUIManager.getInstance().open("configGUI",
 									((org.bukkit.entity.Player) (Object) commandSender));
-						} catch (Exception $SrFFBMp5Hby8AI4S) {
-							PluginMain.reportError("SrFFBMp5Hby8AI4S", $SrFFBMp5Hby8AI4S);
+						} catch (Exception $5v5OhqZSd9Mt28mG) {
+							PluginMain.reportError("5v5OhqZSd9Mt28mG", $5v5OhqZSd9Mt28mG);
 						}
 					}
 				}
@@ -249,19 +250,19 @@ public class PluginMain extends JavaPlugin implements Listener {
 										try {
 											GUIManager.getInstance().open("configGUI",
 													((org.bukkit.entity.Player) event.getWhoClicked()));
-										} catch (Exception $Hvwexudpvj8Yxzg2) {
-											PluginMain.reportError("Hvwexudpvj8Yxzg2", $Hvwexudpvj8Yxzg2);
+										} catch (Exception $MUFpfmBhJuqKGu7M) {
+											PluginMain.reportError("MUFpfmBhJuqKGu7M", $MUFpfmBhJuqKGu7M);
 										}
 									} catch (Exception ex) {
 										ex.printStackTrace();
 									}
 								}
 							}.runTaskLater(PluginMain.getInstance(), ((long) (100d)));
-						} catch (Exception $lp3RqdogXrCTki95) {
-							PluginMain.reportError("lp3RqdogXrCTki95", $lp3RqdogXrCTki95);
+						} catch (Exception $DRBpZAuJi2hPC6ui) {
+							PluginMain.reportError("DRBpZAuJi2hPC6ui", $DRBpZAuJi2hPC6ui);
 						}
-					} catch (Exception $Z833kRilnmoykRgm) {
-						PluginMain.reportError("Z833kRilnmoykRgm", $Z833kRilnmoykRgm);
+					} catch (Exception $39D4zmqnslIEmJfh) {
+						PluginMain.reportError("39D4zmqnslIEmJfh", $39D4zmqnslIEmJfh);
 					}
 				}
 				if (((boolean) String.valueOf(event.getClick()).equalsIgnoreCase("LEFT"))) {
@@ -283,14 +284,14 @@ public class PluginMain extends JavaPlugin implements Listener {
 																				"messages.yml"))).get("prefix")))
 												+ ChatColor.translateAlternateColorCodes('&',
 														" &fType the new prefix:")));
-							} catch (Exception $LMaI99ZnUM5vg9nT) {
-								PluginMain.reportError("LMaI99ZnUM5vg9nT", $LMaI99ZnUM5vg9nT);
+							} catch (Exception $4ExItxFu5tGnjvJ5) {
+								PluginMain.reportError("4ExItxFu5tGnjvJ5", $4ExItxFu5tGnjvJ5);
 							}
-						} catch (Exception $2HwnVlbDuvUgWyte) {
-							PluginMain.reportError("2HwnVlbDuvUgWyte", $2HwnVlbDuvUgWyte);
+						} catch (Exception $WhmipoeWdqWrtXf7) {
+							PluginMain.reportError("WhmipoeWdqWrtXf7", $WhmipoeWdqWrtXf7);
 						}
-					} catch (Exception $Dilm4RCaYRuPufN1) {
-						PluginMain.reportError("Dilm4RCaYRuPufN1", $Dilm4RCaYRuPufN1);
+					} catch (Exception $P4Tdo82eM9YcqOcl) {
+						PluginMain.reportError("P4Tdo82eM9YcqOcl", $P4Tdo82eM9YcqOcl);
 					}
 				}
 			}
@@ -306,8 +307,8 @@ public class PluginMain extends JavaPlugin implements Listener {
 				|| PluginMain.checkEquals(((java.lang.String) event.getBuffer()), "/kkcore:koolkidzcore "))) {
 			try {
 				event.setCompletions(new ArrayList(Arrays.asList("version", "help", "reload", "config")));
-			} catch (Exception $eWdefXvLEuGuszsd) {
-				PluginMain.reportError("eWdefXvLEuGuszsd", $eWdefXvLEuGuszsd);
+			} catch (Exception $kniVY0L6Fd4B4Oyp) {
+				PluginMain.reportError("kniVY0L6Fd4B4Oyp", $kniVY0L6Fd4B4Oyp);
 			}
 		}
 	}
@@ -339,20 +340,20 @@ public class PluginMain extends JavaPlugin implements Listener {
 							try {
 								GUIManager.getInstance().open("configGUI",
 										((org.bukkit.entity.Player) event.getPlayer()));
-							} catch (Exception $U002GgkcHWiDTb5s) {
-								PluginMain.reportError("U002GgkcHWiDTb5s", $U002GgkcHWiDTb5s);
+							} catch (Exception $kxBwB8ddB2KDSvLO) {
+								PluginMain.reportError("kxBwB8ddB2KDSvLO", $kxBwB8ddB2KDSvLO);
 							}
-						} catch (Exception $qKmdUAKt8jg93RMT) {
-							PluginMain.reportError("qKmdUAKt8jg93RMT", $qKmdUAKt8jg93RMT);
+						} catch (Exception $QUN9fbA2WuhDvLs5) {
+							PluginMain.reportError("QUN9fbA2WuhDvLs5", $QUN9fbA2WuhDvLs5);
 						}
-					} catch (Exception $ZozODCCfOxLx65zq) {
-						PluginMain.reportError("ZozODCCfOxLx65zq", $ZozODCCfOxLx65zq);
+					} catch (Exception $k2MGtfJBMvwugKd8) {
+						PluginMain.reportError("k2MGtfJBMvwugKd8", $k2MGtfJBMvwugKd8);
 					}
-				} catch (Exception $JxlVGIxp8uhjxcU3) {
-					PluginMain.reportError("JxlVGIxp8uhjxcU3", $JxlVGIxp8uhjxcU3);
+				} catch (Exception $XkYIStaVOZn29r9k) {
+					PluginMain.reportError("XkYIStaVOZn29r9k", $XkYIStaVOZn29r9k);
 				}
-			} catch (Exception $3Y9r4UCazmqauXsd) {
-				PluginMain.reportError("3Y9r4UCazmqauXsd", $3Y9r4UCazmqauXsd);
+			} catch (Exception $KoB0SqCOzqPwCfo3) {
+				PluginMain.reportError("KoB0SqCOzqPwCfo3", $KoB0SqCOzqPwCfo3);
 			}
 		}
 	}
@@ -385,8 +386,8 @@ public class PluginMain extends JavaPlugin implements Listener {
 								ChatColor.translateAlternateColorCodes('&',
 										"&fDownload Here: &7https://github.com/Rodney-RWR/KKCore/releases/latest")))
 												.toArray(new java.lang.String[]{})));
-			} catch (Exception $liC8uELOkmm5b11D) {
-				PluginMain.reportError("liC8uELOkmm5b11D", $liC8uELOkmm5b11D);
+			} catch (Exception $WGA1BCu95nqtr0HA) {
+				PluginMain.reportError("WGA1BCu95nqtr0HA", $WGA1BCu95nqtr0HA);
 			}
 		}
 	}
@@ -406,6 +407,17 @@ public class PluginMain extends JavaPlugin implements Listener {
 		} catch (Exception exception) {
 			exception.printStackTrace();
 			return false;
+		}
+	}
+
+	public static String getGithubVersion(String owner, String repository) {
+		try (java.io.InputStream inputStream = new java.net.URL(
+				"https://api.github.com/repos/" + owner + "/" + repository + "/releases/latest").openStream()) {
+			org.json.JSONObject response = new org.json.JSONObject(new org.json.JSONTokener(inputStream));
+			return response.getString("tag_name");
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			return PluginMain.getInstance().getDescription().getVersion();
 		}
 	}
 
