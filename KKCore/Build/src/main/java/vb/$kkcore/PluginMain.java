@@ -17,37 +17,22 @@ public class PluginMain extends JavaPlugin implements Listener {
 	public void onEnable() {
 		instance = this;
 		getServer().getPluginManager().registerEvents(this, this);
-		PluginMain.createResourceFile("messages.yml");
+		saveDefaultConfig();
 		try {
-			try {
-				PluginMain.getInstance().getLogger().info((ChatColor.translateAlternateColorCodes('&', String.valueOf(
+			PluginMain.getInstance().getLogger()
+					.info((ChatColor.translateAlternateColorCodes('&',
+							String.valueOf(PluginMain.getInstance().getConfig().get("prefix")))
+							+ ChatColor.translateAlternateColorCodes('&', " &aPlugin Enabled!")));
+			if (((boolean) String.valueOf(PluginMain.hasGithubUpdate("Rodney-RWR", "KKCore"))
+					.equalsIgnoreCase("true"))) {
+				PluginMain.getInstance().getLogger().info(((ChatColor.translateAlternateColorCodes('&', String.valueOf(
 						((org.bukkit.configuration.ConfigurationSection) (Object) org.bukkit.configuration.file.YamlConfiguration
 								.loadConfiguration(new File(String.valueOf(PluginMain.getInstance().getDataFolder()),
 										"messages.yml"))).get("prefix")))
-						+ ChatColor.translateAlternateColorCodes('&', " &aPlugin Enabled!")));
-				if (((boolean) String.valueOf(PluginMain.hasGithubUpdate("Rodney-RWR", "KKCore"))
-						.equalsIgnoreCase("true"))) {
-					try {
-						PluginMain.getInstance().getLogger().info(((ChatColor
-								.translateAlternateColorCodes('&', String.valueOf(
-										((org.bukkit.configuration.ConfigurationSection) (Object) org.bukkit.configuration.file.YamlConfiguration
-												.loadConfiguration(new File(
-														String.valueOf(PluginMain.getInstance().getDataFolder()),
-														"messages.yml"))).get("prefix")))
-								+ ChatColor.translateAlternateColorCodes('&', " &aUpdate Available! New Version: "))
-								+ PluginMain.getGithubVersion(((java.lang.String) null), ((java.lang.String) null))));
-						try {
-							PluginMain.getInstance().getLogger()
-									.info("Download Here: https://github.com/Rodney-RWR/KKCore/releases/latest");
-						} catch (Exception $Yeizc5n9V8jUPIlQ) {
-							PluginMain.reportError("Yeizc5n9V8jUPIlQ", $Yeizc5n9V8jUPIlQ);
-						}
-					} catch (Exception $AVJDwHKy9ZeJNHc1) {
-						PluginMain.reportError("AVJDwHKy9ZeJNHc1", $AVJDwHKy9ZeJNHc1);
-					}
-				}
-			} catch (Exception $4WSj7I6Q75vlnA5K) {
-				PluginMain.reportError("4WSj7I6Q75vlnA5K", $4WSj7I6Q75vlnA5K);
+						+ ChatColor.translateAlternateColorCodes('&', " &aUpdate Available! New Version: "))
+						+ PluginMain.getGithubVersion("Rodney-RWR", "KKCore")));
+				PluginMain.getInstance().getLogger()
+						.info("Download Here: https://github.com/Rodney-RWR/KKCore/releases/latest");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -57,27 +42,21 @@ public class PluginMain extends JavaPlugin implements Listener {
 			try {
 				org.bukkit.inventory.Inventory guiInventory = Bukkit.createInventory(new GUIIdentifier("configGUI"),
 						((int) (45d)),
-						(ChatColor.translateAlternateColorCodes('&', String.valueOf(
-								((org.bukkit.configuration.ConfigurationSection) (Object) org.bukkit.configuration.file.YamlConfiguration
-										.loadConfiguration(
-												new File(String.valueOf(PluginMain.getInstance().getDataFolder()),
-														"messages.yml"))).get("prefix")))
+						(ChatColor.translateAlternateColorCodes('&',
+								String.valueOf(PluginMain.getInstance().getConfig().get("prefix")))
 								+ ChatColor.translateAlternateColorCodes('&', " &fConfiguration")));
-				try {
-					guiInventory.setItem(((int) (0d)), PluginMain.getNamedItemWithLore(
-							((org.bukkit.Material) org.bukkit.Material.NAME_TAG),
-							ChatColor.translateAlternateColorCodes('&', "&fPlugin Prefix"),
-							new ArrayList(Arrays.asList((ChatColor.translateAlternateColorCodes('&', "&7Current: ")
-									+ ChatColor.translateAlternateColorCodes('&', String.valueOf(
-											((org.bukkit.configuration.ConfigurationSection) (Object) org.bukkit.configuration.file.YamlConfiguration
-													.loadConfiguration(new File(
-															String.valueOf(PluginMain.getInstance().getDataFolder()),
-															"messages.yml"))).get("prefix")))),
-									ChatColor.translateAlternateColorCodes('&', "&fLeft Click &7To Change"),
-									ChatColor.translateAlternateColorCodes('&', "&fRight Click &7To Preview")))));
-				} catch (Exception $bRntye7YOGEds5fX) {
-					PluginMain.reportError("bRntye7YOGEds5fX", $bRntye7YOGEds5fX);
-				}
+				guiInventory
+						.setItem(((int) (0d)),
+								PluginMain.getNamedItemWithLore(((org.bukkit.Material) org.bukkit.Material.NAME_TAG),
+										ChatColor.translateAlternateColorCodes('&', "&fPlugin Prefix"),
+										new ArrayList(Arrays.asList(
+												(ChatColor.translateAlternateColorCodes('&', "&7Current: ")
+														+ ChatColor.translateAlternateColorCodes('&',
+																String.valueOf(PluginMain.getInstance().getConfig()
+																		.get("prefix")))),
+												ChatColor.translateAlternateColorCodes('&', "&fLeft Click &7To Change"),
+												ChatColor.translateAlternateColorCodes('&',
+														"&fRight Click &7To Preview")))));
 				return guiInventory;
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -89,15 +68,10 @@ public class PluginMain extends JavaPlugin implements Listener {
 	@Override
 	public void onDisable() {
 		try {
-			try {
-				PluginMain.getInstance().getLogger().info((ChatColor.translateAlternateColorCodes('&', String.valueOf(
-						((org.bukkit.configuration.ConfigurationSection) (Object) org.bukkit.configuration.file.YamlConfiguration
-								.loadConfiguration(new File(String.valueOf(PluginMain.getInstance().getDataFolder()),
-										"messages.yml"))).get("prefix")))
-						+ ChatColor.translateAlternateColorCodes('&', " &cPlugin Disabled!")));
-			} catch (Exception $DZXkFpihdW24LIjj) {
-				PluginMain.reportError("DZXkFpihdW24LIjj", $DZXkFpihdW24LIjj);
-			}
+			PluginMain.getInstance().getLogger()
+					.info((ChatColor.translateAlternateColorCodes('&',
+							String.valueOf(PluginMain.getInstance().getConfig().get("prefix")))
+							+ ChatColor.translateAlternateColorCodes('&', " &cPlugin Disabled!")));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -108,69 +82,41 @@ public class PluginMain extends JavaPlugin implements Listener {
 		if (command.getName().equalsIgnoreCase("koolkidzcore")) {
 			try {
 				if (((commandArgs.length > ((int) (0d)) ? commandArgs[((int) (0d))] : null) == null)) {
-					try {
-						commandSender.sendMessage((ChatColor.translateAlternateColorCodes('&', String.valueOf(
-								((org.bukkit.configuration.ConfigurationSection) (Object) org.bukkit.configuration.file.YamlConfiguration
-										.loadConfiguration(
-												new File(String.valueOf(PluginMain.getInstance().getDataFolder()),
-														"messages.yml"))).get("prefix")))
-								+ ChatColor.translateAlternateColorCodes('&', " &fInvalid Usage: /kkcore help")));
-					} catch (Exception $hM8CYw7FvMPe9fsO) {
-						PluginMain.reportError("hM8CYw7FvMPe9fsO", $hM8CYw7FvMPe9fsO);
-					}
+					commandSender.sendMessage((ChatColor.translateAlternateColorCodes('&',
+							String.valueOf(PluginMain.getInstance().getConfig().get("prefix")))
+							+ ChatColor.translateAlternateColorCodes('&', " &fInvalid Usage: /kkcore help")));
 				} else if (!((commandArgs.length > ((int) (0d)) ? commandArgs[((int) (0d))] : null) == null)) {
 					if (((boolean) (commandArgs.length > ((int) (0d)) ? commandArgs[((int) (0d))] : null)
 							.equalsIgnoreCase("secret"))) {
-						try {
-							commandSender.sendMessage((ChatColor.translateAlternateColorCodes('&', String.valueOf(
-									((org.bukkit.configuration.ConfigurationSection) (Object) org.bukkit.configuration.file.YamlConfiguration
-											.loadConfiguration(
-													new File(String.valueOf(PluginMain.getInstance().getDataFolder()),
-															"messages.yml"))).get("prefix")))
-									+ ChatColor.translateAlternateColorCodes('&', " &fAsphy is a doo doo head!")));
-						} catch (Exception $MsfZ6uD43YD0oouu) {
-							PluginMain.reportError("MsfZ6uD43YD0oouu", $MsfZ6uD43YD0oouu);
-						}
+						commandSender.sendMessage((ChatColor.translateAlternateColorCodes('&',
+								String.valueOf(PluginMain.getInstance().getConfig().get("prefix")))
+								+ ChatColor.translateAlternateColorCodes('&', " &fAsphy is a doo doo head!")));
 					}
 					if (((boolean) (commandArgs.length > ((int) (0d)) ? commandArgs[((int) (0d))] : null)
 							.equalsIgnoreCase("version"))) {
-						try {
-							commandSender.sendMessage(((ChatColor.translateAlternateColorCodes('&', String.valueOf(
-									((org.bukkit.configuration.ConfigurationSection) (Object) org.bukkit.configuration.file.YamlConfiguration
-											.loadConfiguration(
-													new File(String.valueOf(PluginMain.getInstance().getDataFolder()),
-															"messages.yml"))).get("prefix")))
-									+ ChatColor.translateAlternateColorCodes('&', " &fPlugin Version: &7"))
-									+ PluginMain.getInstance().getDescription().getVersion()));
-						} catch (Exception $gzbvoUOf5v5AUzOZ) {
-							PluginMain.reportError("gzbvoUOf5v5AUzOZ", $gzbvoUOf5v5AUzOZ);
-						}
+						commandSender.sendMessage(((ChatColor.translateAlternateColorCodes('&',
+								String.valueOf(PluginMain.getInstance().getConfig().get("prefix")))
+								+ ChatColor.translateAlternateColorCodes('&', " &fPlugin Version: &7"))
+								+ PluginMain.getInstance().getDescription().getVersion()));
 					}
 					if (((boolean) (commandArgs.length > ((int) (0d)) ? commandArgs[((int) (0d))] : null)
 							.equalsIgnoreCase("help"))) {
-						try {
-							commandSender.sendMessage(((java.lang.String[]) new ArrayList(Arrays.asList(
-									(ChatColor.translateAlternateColorCodes('&', String.valueOf(
-											((org.bukkit.configuration.ConfigurationSection) (Object) org.bukkit.configuration.file.YamlConfiguration
-													.loadConfiguration(new File(
-															String.valueOf(PluginMain.getInstance().getDataFolder()),
-															"messages.yml"))).get("prefix")))
-											+ ChatColor.translateAlternateColorCodes('&', " &fPlugin Help: ")),
-									ChatColor.translateAlternateColorCodes('&',
-											"&d/kkcore version&7: &fShows plugin version")))
-													.toArray(new java.lang.String[]{})));
-						} catch (Exception $fXilGpPzdkW1pG17) {
-							PluginMain.reportError("fXilGpPzdkW1pG17", $fXilGpPzdkW1pG17);
-						}
+						commandSender
+								.sendMessage(
+										((java.lang.String[]) new ArrayList(
+												Arrays.asList(
+														(ChatColor.translateAlternateColorCodes('&',
+																String.valueOf(PluginMain.getInstance().getConfig()
+																		.get("prefix")))
+																+ ChatColor.translateAlternateColorCodes('&',
+																		" &fPlugin Help: ")),
+														ChatColor.translateAlternateColorCodes('&',
+																"&d/kkcore version&7: &fShows plugin version")))
+																		.toArray(new java.lang.String[]{})));
 					}
 					if (((boolean) (commandArgs.length > ((int) (0d)) ? commandArgs[((int) (0d))] : null)
 							.equalsIgnoreCase("config"))) {
-						try {
-							GUIManager.getInstance().open("configGUI",
-									((org.bukkit.entity.Player) (Object) commandSender));
-						} catch (Exception $5v5OhqZSd9Mt28mG) {
-							PluginMain.reportError("5v5OhqZSd9Mt28mG", $5v5OhqZSd9Mt28mG);
-						}
+						GUIManager.getInstance().open("configGUI", ((org.bukkit.entity.Player) (Object) commandSender));
 					}
 				}
 			} catch (Exception e) {
@@ -229,70 +175,31 @@ public class PluginMain extends JavaPlugin implements Listener {
 		if (event.getID().equalsIgnoreCase("configGUI")) {
 			if (((boolean) String.valueOf(event.getSlot()).equalsIgnoreCase("0"))) {
 				if (((boolean) String.valueOf(event.getClick()).equalsIgnoreCase("RIGHT"))) {
-					try {
-						((org.bukkit.entity.HumanEntity) (Object) ((org.bukkit.entity.Player) event.getWhoClicked()))
-								.closeInventory();
-						try {
-							((org.bukkit.command.CommandSender) (Object) ((org.bukkit.entity.Player) event
-									.getWhoClicked())).sendMessage((ChatColor.translateAlternateColorCodes(
-											'&',
-											String.valueOf(
-													((org.bukkit.configuration.ConfigurationSection) (Object) org.bukkit.configuration.file.YamlConfiguration
-															.loadConfiguration(new File(
-																	String.valueOf(
-																			PluginMain.getInstance().getDataFolder()),
-																	"messages.yml"))).get("prefix")))
-											+ ChatColor.translateAlternateColorCodes('&',
-													" &fPreviewing the prefix!")));
-							new org.bukkit.scheduler.BukkitRunnable() {
-								public void run() {
-									try {
-										try {
-											GUIManager.getInstance().open("configGUI",
-													((org.bukkit.entity.Player) event.getWhoClicked()));
-										} catch (Exception $MUFpfmBhJuqKGu7M) {
-											PluginMain.reportError("MUFpfmBhJuqKGu7M", $MUFpfmBhJuqKGu7M);
-										}
-									} catch (Exception ex) {
-										ex.printStackTrace();
-									}
-								}
-							}.runTaskLater(PluginMain.getInstance(), ((long) (100d)));
-						} catch (Exception $DRBpZAuJi2hPC6ui) {
-							PluginMain.reportError("DRBpZAuJi2hPC6ui", $DRBpZAuJi2hPC6ui);
+					((org.bukkit.entity.HumanEntity) (Object) ((org.bukkit.entity.Player) event.getWhoClicked()))
+							.closeInventory();
+					((org.bukkit.command.CommandSender) (Object) ((org.bukkit.entity.Player) event.getWhoClicked()))
+							.sendMessage((ChatColor.translateAlternateColorCodes('&',
+									String.valueOf(PluginMain.getInstance().getConfig().get("prefix")))
+									+ ChatColor.translateAlternateColorCodes('&', " &fPreviewing the prefix!")));
+					new org.bukkit.scheduler.BukkitRunnable() {
+						public void run() {
+							try {
+								GUIManager.getInstance().open("configGUI",
+										((org.bukkit.entity.Player) event.getWhoClicked()));
+							} catch (Exception ex) {
+								ex.printStackTrace();
+							}
 						}
-					} catch (Exception $39D4zmqnslIEmJfh) {
-						PluginMain.reportError("39D4zmqnslIEmJfh", $39D4zmqnslIEmJfh);
-					}
+					}.runTaskLater(PluginMain.getInstance(), ((long) (100d)));
 				}
 				if (((boolean) String.valueOf(event.getClick()).equalsIgnoreCase("LEFT"))) {
-					try {
-						PluginMain.GLOBAL_f53d22893d5e14fef7d5100968f08f49 = ((java.lang.Object) (Object) true);
-						try {
-							((org.bukkit.entity.HumanEntity) (Object) ((org.bukkit.entity.Player) event
-									.getWhoClicked())).closeInventory();
-							try {
-								((org.bukkit.command.CommandSender) (Object) ((org.bukkit.entity.Player) event
-										.getWhoClicked())).sendMessage((ChatColor.translateAlternateColorCodes(
-												'&',
-												String.valueOf(
-														((org.bukkit.configuration.ConfigurationSection) (Object) org.bukkit.configuration.file.YamlConfiguration
-																.loadConfiguration(
-																		new File(
-																				String.valueOf(PluginMain.getInstance()
-																						.getDataFolder()),
-																				"messages.yml"))).get("prefix")))
-												+ ChatColor.translateAlternateColorCodes('&',
-														" &fType the new prefix:")));
-							} catch (Exception $4ExItxFu5tGnjvJ5) {
-								PluginMain.reportError("4ExItxFu5tGnjvJ5", $4ExItxFu5tGnjvJ5);
-							}
-						} catch (Exception $WhmipoeWdqWrtXf7) {
-							PluginMain.reportError("WhmipoeWdqWrtXf7", $WhmipoeWdqWrtXf7);
-						}
-					} catch (Exception $P4Tdo82eM9YcqOcl) {
-						PluginMain.reportError("P4Tdo82eM9YcqOcl", $P4Tdo82eM9YcqOcl);
-					}
+					PluginMain.GLOBAL_f53d22893d5e14fef7d5100968f08f49 = ((java.lang.Object) (Object) true);
+					((org.bukkit.entity.HumanEntity) (Object) ((org.bukkit.entity.Player) event.getWhoClicked()))
+							.closeInventory();
+					((org.bukkit.command.CommandSender) (Object) ((org.bukkit.entity.Player) event.getWhoClicked()))
+							.sendMessage((ChatColor.translateAlternateColorCodes('&',
+									String.valueOf(PluginMain.getInstance().getConfig().get("prefix")))
+									+ ChatColor.translateAlternateColorCodes('&', " &fType the new prefix:")));
 				}
 			}
 			return;
@@ -305,11 +212,7 @@ public class PluginMain extends JavaPlugin implements Listener {
 				|| PluginMain.checkEquals(((java.lang.String) event.getBuffer()), "/koolkidzcore "))
 				|| PluginMain.checkEquals(((java.lang.String) event.getBuffer()), "/kkcore:koolkidzcore "))
 				|| PluginMain.checkEquals(((java.lang.String) event.getBuffer()), "/kkcore:koolkidzcore "))) {
-			try {
-				event.setCompletions(new ArrayList(Arrays.asList("version", "help", "reload", "config")));
-			} catch (Exception $kniVY0L6Fd4B4Oyp) {
-				PluginMain.reportError("kniVY0L6Fd4B4Oyp", $kniVY0L6Fd4B4Oyp);
-			}
+			event.setCompletions(new ArrayList(Arrays.asList("version", "help", "config")));
 		}
 	}
 
@@ -317,44 +220,16 @@ public class PluginMain extends JavaPlugin implements Listener {
 	public void event2(org.bukkit.event.player.PlayerChatEvent event) throws Exception {
 		if (((boolean) String.valueOf(GLOBAL_f53d22893d5e14fef7d5100968f08f49)
 				.equalsIgnoreCase(String.valueOf(true)))) {
-			try {
-				((org.bukkit.configuration.ConfigurationSection) (Object) org.bukkit.configuration.file.YamlConfiguration
-						.loadConfiguration(
-								new File(String.valueOf(PluginMain.getInstance().getDataFolder()), "messages.yml")))
-										.set("prefix",
-												(ChatColor.translateAlternateColorCodes('&', ((java.lang.String) null))
-														+ ChatColor.translateAlternateColorCodes('&',
-																" &cPrefix Updated!")));
-				try {
-					event.setCancelled(true);
-					try {
-						((org.bukkit.command.CommandSender) (Object) ((org.bukkit.entity.Player) event.getPlayer()))
-								.sendMessage((ChatColor.translateAlternateColorCodes('&', String.valueOf(
-										((org.bukkit.configuration.ConfigurationSection) (Object) org.bukkit.configuration.file.YamlConfiguration
-												.loadConfiguration(new File(
-														String.valueOf(PluginMain.getInstance().getDataFolder()),
-														"messages.yml"))).get("prefix")))
-										+ ChatColor.translateAlternateColorCodes('&', " &cPrefix Updated!")));
-						try {
-							PluginMain.GLOBAL_f53d22893d5e14fef7d5100968f08f49 = ((java.lang.Object) (Object) false);
-							try {
-								GUIManager.getInstance().open("configGUI",
-										((org.bukkit.entity.Player) event.getPlayer()));
-							} catch (Exception $kxBwB8ddB2KDSvLO) {
-								PluginMain.reportError("kxBwB8ddB2KDSvLO", $kxBwB8ddB2KDSvLO);
-							}
-						} catch (Exception $QUN9fbA2WuhDvLs5) {
-							PluginMain.reportError("QUN9fbA2WuhDvLs5", $QUN9fbA2WuhDvLs5);
-						}
-					} catch (Exception $k2MGtfJBMvwugKd8) {
-						PluginMain.reportError("k2MGtfJBMvwugKd8", $k2MGtfJBMvwugKd8);
-					}
-				} catch (Exception $XkYIStaVOZn29r9k) {
-					PluginMain.reportError("XkYIStaVOZn29r9k", $XkYIStaVOZn29r9k);
-				}
-			} catch (Exception $KoB0SqCOzqPwCfo3) {
-				PluginMain.reportError("KoB0SqCOzqPwCfo3", $KoB0SqCOzqPwCfo3);
-			}
+			PluginMain.getInstance().getConfig().set("prefix",
+					ChatColor.translateAlternateColorCodes('&', ((java.lang.String) event.getMessage())));
+			PluginMain.getInstance().saveConfig();
+			event.setCancelled(true);
+			((org.bukkit.command.CommandSender) (Object) ((org.bukkit.entity.Player) event.getPlayer()))
+					.sendMessage((ChatColor.translateAlternateColorCodes('&',
+							String.valueOf(PluginMain.getInstance().getConfig().get("prefix")))
+							+ ChatColor.translateAlternateColorCodes('&', " &cPrefix Updated!")));
+			PluginMain.GLOBAL_f53d22893d5e14fef7d5100968f08f49 = ((java.lang.Object) (Object) false);
+			GUIManager.getInstance().open("configGUI", ((org.bukkit.entity.Player) event.getPlayer()));
 		}
 	}
 
@@ -374,27 +249,15 @@ public class PluginMain extends JavaPlugin implements Listener {
 	@EventHandler(priority = EventPriority.NORMAL)
 	public void event3(org.bukkit.event.player.PlayerJoinEvent event) throws Exception {
 		if (((boolean) String.valueOf(PluginMain.hasGithubUpdate("Rodney-RWR", "KKCore")).equalsIgnoreCase("true"))) {
-			try {
-				((org.bukkit.command.CommandSender) (Object) ((org.bukkit.entity.Player) event.getPlayer()))
-						.sendMessage(((java.lang.String[]) new ArrayList(Arrays.asList(
-								(ChatColor.translateAlternateColorCodes('&', String.valueOf(
-										((org.bukkit.configuration.ConfigurationSection) (Object) org.bukkit.configuration.file.YamlConfiguration
-												.loadConfiguration(new File(
-														String.valueOf(PluginMain.getInstance().getDataFolder()),
-														"messages.yml"))).get("prefix")))
-										+ ChatColor.translateAlternateColorCodes('&', " &aUpdate Available!")),
-								ChatColor.translateAlternateColorCodes('&',
-										"&fDownload Here: &7https://github.com/Rodney-RWR/KKCore/releases/latest")))
-												.toArray(new java.lang.String[]{})));
-			} catch (Exception $WGA1BCu95nqtr0HA) {
-				PluginMain.reportError("WGA1BCu95nqtr0HA", $WGA1BCu95nqtr0HA);
-			}
+			((org.bukkit.command.CommandSender) (Object) ((org.bukkit.entity.Player) event.getPlayer()))
+					.sendMessage(((java.lang.String[]) new ArrayList(Arrays.asList(
+							(ChatColor.translateAlternateColorCodes('&',
+									String.valueOf(PluginMain.getInstance().getConfig().get("prefix")))
+									+ ChatColor.translateAlternateColorCodes('&', " &aUpdate Available!")),
+							ChatColor.translateAlternateColorCodes('&',
+									"&fDownload Here: &7https://github.com/Rodney-RWR/KKCore/releases/latest")))
+											.toArray(new java.lang.String[]{})));
 		}
-	}
-
-	public static void reportError(String id, Exception error) throws Exception {
-		Class.forName("com.gmail.visualbukkit.plugin.VisualBukkitPlugin")
-				.getDeclaredMethod("reportError", String.class, Exception.class).invoke(null, id, error);
 	}
 
 	public static boolean hasGithubUpdate(String owner, String repository) {

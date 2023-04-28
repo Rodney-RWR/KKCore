@@ -1,9 +1,9 @@
 {
-  "plugin.dependencies": "VisualBukkit, PlaceholderAPI, Vault",
+  "plugin.dependencies": "PlaceholderAPI, Vault",
   "plugin.load-before": "",
-  "plugin.version": "Beta-v0.1.4",
-  "debug-build-mode": true,
-  "open-tab": 7,
+  "plugin.version": "Beta-v0.1.5",
+  "debug-build-mode": false,
+  "open-tab": 1,
   "plugin-components": [
     {
       "children": [
@@ -17,19 +17,7 @@
                 "parameters": [{
                   "=": "expr-config-value",
                   "parameters": [
-                    {
-                      "=": "expr-config-from-file",
-                      "parameters": [{
-                        "=": "expr-file-in-directory",
-                        "parameters": [
-                          {"=": "expr-plugin-directory"},
-                          {
-                            "=": "expr-string",
-                            "parameters": ["messages.yml"]
-                          }
-                        ]
-                      }]
-                    },
+                    {"=": "expr-plugin-config"},
                     {
                       "=": "expr-string",
                       "parameters": ["prefix"]
@@ -84,8 +72,14 @@
                   {
                     "=": "expr-github-version",
                     "parameters": [
-                      null,
-                      null
+                      {
+                        "=": "expr-string",
+                        "parameters": ["Rodney-RWR"]
+                      },
+                      {
+                        "=": "expr-string",
+                        "parameters": ["KKCore"]
+                      }
                     ]
                   }
                 ]
@@ -133,7 +127,6 @@
       "children": [
         {
           "children": [{
-            "collapsed": true,
             "=": "org.bukkit.command.CommandSender#sendMessage(java.lang.String)",
             "parameters": [
               {"=": "expr-command-sender"},
@@ -145,19 +138,7 @@
                     "parameters": [{
                       "=": "expr-config-value",
                       "parameters": [
-                        {
-                          "=": "expr-config-from-file",
-                          "parameters": [{
-                            "=": "expr-file-in-directory",
-                            "parameters": [
-                              {"=": "expr-plugin-directory"},
-                              {
-                                "=": "expr-string",
-                                "parameters": ["messages.yml"]
-                              }
-                            ]
-                          }]
-                        },
+                        {"=": "expr-plugin-config"},
                         {
                           "=": "expr-string",
                           "parameters": ["prefix"]
@@ -204,19 +185,7 @@
                         "parameters": [{
                           "=": "expr-config-value",
                           "parameters": [
-                            {
-                              "=": "expr-config-from-file",
-                              "parameters": [{
-                                "=": "expr-file-in-directory",
-                                "parameters": [
-                                  {"=": "expr-plugin-directory"},
-                                  {
-                                    "=": "expr-string",
-                                    "parameters": ["messages.yml"]
-                                  }
-                                ]
-                              }]
-                            },
+                            {"=": "expr-plugin-config"},
                             {
                               "=": "expr-string",
                               "parameters": ["prefix"]
@@ -270,19 +239,7 @@
                             "parameters": [{
                               "=": "expr-config-value",
                               "parameters": [
-                                {
-                                  "=": "expr-config-from-file",
-                                  "parameters": [{
-                                    "=": "expr-file-in-directory",
-                                    "parameters": [
-                                      {"=": "expr-plugin-directory"},
-                                      {
-                                        "=": "expr-string",
-                                        "parameters": ["messages.yml"]
-                                      }
-                                    ]
-                                  }]
-                                },
+                                {"=": "expr-plugin-config"},
                                 {
                                   "=": "expr-string",
                                   "parameters": ["prefix"]
@@ -324,6 +281,7 @@
             },
             {
               "children": [{
+                "collapsed": true,
                 "=": "org.bukkit.command.CommandSender#sendMessage(java.lang.String...)",
                 "parameters": [
                   {"=": "expr-command-sender"},
@@ -339,19 +297,7 @@
                             "parameters": [{
                               "=": "expr-config-value",
                               "parameters": [
-                                {
-                                  "=": "expr-config-from-file",
-                                  "parameters": [{
-                                    "=": "expr-file-in-directory",
-                                    "parameters": [
-                                      {"=": "expr-plugin-directory"},
-                                      {
-                                        "=": "expr-string",
-                                        "parameters": ["messages.yml"]
-                                      }
-                                    ]
-                                  }]
-                                },
+                                {"=": "expr-plugin-config"},
                                 {
                                   "=": "expr-string",
                                   "parameters": ["prefix"]
@@ -396,6 +342,7 @@
             },
             {
               "children": [{
+                "collapsed": true,
                 "=": "stat-open-gui",
                 "parameters": [
                   {
@@ -464,19 +411,7 @@
               "parameters": [{
                 "=": "expr-config-value",
                 "parameters": [
-                  {
-                    "=": "expr-config-from-file",
-                    "parameters": [{
-                      "=": "expr-file-in-directory",
-                      "parameters": [
-                        {"=": "expr-plugin-directory"},
-                        {
-                          "=": "expr-string",
-                          "parameters": ["messages.yml"]
-                        }
-                      ]
-                    }]
-                  },
+                  {"=": "expr-plugin-config"},
                   {
                     "=": "expr-string",
                     "parameters": ["prefix"]
@@ -498,7 +433,7 @@
         "children": [{
           "=": "org.bukkit.event.server.TabCompleteEvent#setCompletions(java.util.List<java.lang.String>)",
           "parameters": [{
-            "size": 4,
+            "size": 3,
             "=": "expr-new-list",
             "parameters": [
               {
@@ -508,10 +443,6 @@
               {
                 "=": "expr-string",
                 "parameters": ["help"]
-              },
-              {
-                "=": "expr-string",
-                "parameters": ["reload"]
               },
               {
                 "=": "expr-string",
@@ -610,19 +541,7 @@
                         "parameters": [{
                           "=": "expr-config-value",
                           "parameters": [
-                            {
-                              "=": "expr-config-from-file",
-                              "parameters": [{
-                                "=": "expr-file-in-directory",
-                                "parameters": [
-                                  {"=": "expr-plugin-directory"},
-                                  {
-                                    "=": "expr-string",
-                                    "parameters": ["messages.yml"]
-                                  }
-                                ]
-                              }]
-                            },
+                            {"=": "expr-plugin-config"},
                             {
                               "=": "expr-string",
                               "parameters": ["prefix"]
@@ -657,19 +576,7 @@
               "parameters": [{
                 "=": "expr-config-value",
                 "parameters": [
-                  {
-                    "=": "expr-config-from-file",
-                    "parameters": [{
-                      "=": "expr-file-in-directory",
-                      "parameters": [
-                        {"=": "expr-plugin-directory"},
-                        {
-                          "=": "expr-string",
-                          "parameters": ["messages.yml"]
-                        }
-                      ]
-                    }]
-                  },
+                  {"=": "expr-plugin-config"},
                   {
                     "=": "expr-string",
                     "parameters": ["prefix"]
@@ -711,19 +618,7 @@
                         "parameters": [{
                           "=": "expr-config-value",
                           "parameters": [
-                            {
-                              "=": "expr-config-from-file",
-                              "parameters": [{
-                                "=": "expr-file-in-directory",
-                                "parameters": [
-                                  {"=": "expr-plugin-directory"},
-                                  {
-                                    "=": "expr-string",
-                                    "parameters": ["messages.yml"]
-                                  }
-                                ]
-                              }]
-                            },
+                            {"=": "expr-plugin-config"},
                             {
                               "=": "expr-string",
                               "parameters": ["prefix"]
@@ -804,19 +699,7 @@
                         "parameters": [{
                           "=": "expr-config-value",
                           "parameters": [
-                            {
-                              "=": "expr-config-from-file",
-                              "parameters": [{
-                                "=": "expr-file-in-directory",
-                                "parameters": [
-                                  {"=": "expr-plugin-directory"},
-                                  {
-                                    "=": "expr-string",
-                                    "parameters": ["messages.yml"]
-                                  }
-                                ]
-                              }]
-                            },
+                            {"=": "expr-plugin-config"},
                             {
                               "=": "expr-string",
                               "parameters": ["prefix"]
@@ -873,38 +756,18 @@
           {
             "=": "stat-set-config-value",
             "parameters": [
-              {
-                "=": "expr-config-from-file",
-                "parameters": [{
-                  "=": "expr-file-in-directory",
-                  "parameters": [
-                    {"=": "expr-plugin-directory"},
-                    {
-                      "=": "expr-string",
-                      "parameters": ["messages.yml"]
-                    }
-                  ]
-                }]
-              },
+              {"=": "expr-plugin-config"},
               {
                 "=": "expr-string",
                 "parameters": ["prefix"]
               },
               {
-                "=": "expr-combine-strings",
-                "parameters": [
-                  {
-                    "=": "expr-colored-string",
-                    "parameters": [null]
-                  },
-                  {
-                    "=": "expr-string",
-                    "parameters": [" &cPrefix Updated!"]
-                  }
-                ]
+                "=": "expr-colored-string",
+                "parameters": [{"=": "org.bukkit.event.player.PlayerChatEvent#getMessage()"}]
               }
             ]
           },
+          {"=": "stat-save-plugin-config"},
           {
             "=": "org.bukkit.event.player.PlayerChatEvent#setCancelled(boolean)",
             "parameters": [{
@@ -924,19 +787,7 @@
                     "parameters": [{
                       "=": "expr-config-value",
                       "parameters": [
-                        {
-                          "=": "expr-config-from-file",
-                          "parameters": [{
-                            "=": "expr-file-in-directory",
-                            "parameters": [
-                              {"=": "expr-plugin-directory"},
-                              {
-                                "=": "expr-string",
-                                "parameters": ["messages.yml"]
-                              }
-                            ]
-                          }]
-                        },
+                        {"=": "expr-plugin-config"},
                         {
                           "=": "expr-string",
                           "parameters": ["prefix"]
@@ -1016,19 +867,7 @@
                       "parameters": [{
                         "=": "expr-config-value",
                         "parameters": [
-                          {
-                            "=": "expr-config-from-file",
-                            "parameters": [{
-                              "=": "expr-file-in-directory",
-                              "parameters": [
-                                {"=": "expr-plugin-directory"},
-                                {
-                                  "=": "expr-string",
-                                  "parameters": ["messages.yml"]
-                                }
-                              ]
-                            }]
-                          },
+                          {"=": "expr-plugin-config"},
                           {
                             "=": "expr-string",
                             "parameters": ["prefix"]
@@ -1084,7 +923,7 @@
   "plugin.soft-dependencies": "",
   "plugin.name": "KKCore",
   "plugin.prefix": "koolkidz",
-  "current-plugin-component": 7,
+  "current-plugin-component": 1,
   "extensions": [
     "PlaceholderAPI",
     "Vault",

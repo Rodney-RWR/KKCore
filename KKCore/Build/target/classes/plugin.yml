@@ -1,11 +1,11 @@
 name: "KKCore"
-version: "Beta-v0.1.4"
+version: "Beta-v0.1.5"
 main: "vb.$kkcore.PluginMain"
 api-version: 1.13
 authors: [Rodney_RWR]
 description: "KoolKidz Core Plugin"
 prefix: "koolkidz"
-depend: [VisualBukkit, PlaceholderAPI, Vault]
+depend: [PlaceholderAPI, Vault]
 commands:
   koolkidzcore:
     aliases: [kkcore]
