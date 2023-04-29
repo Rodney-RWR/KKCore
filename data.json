@@ -3,7 +3,7 @@
   "plugin.load-before": "",
   "plugin.version": "Beta-v0.1.5",
   "debug-build-mode": false,
-  "open-tab": 2,
+  "open-tab": 6,
   "plugin-components": [
     {
       "children": [
@@ -1470,7 +1470,7 @@
   "plugin.soft-dependencies": "",
   "plugin.name": "KKCore",
   "plugin.prefix": "koolkidz",
-  "current-plugin-component": 2,
+  "current-plugin-component": 6,
   "extensions": [
     "PlaceholderAPI",
     "Vault",
